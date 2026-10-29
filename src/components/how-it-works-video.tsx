@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { BASE_PATH } from "@/lib/base-path";
 
 /** Wraps a trigger button; opens the 30-second REMAX introduction video. */
 export function HowItWorksVideo({ children }: { children: React.ReactNode }) {
@@ -24,8 +25,8 @@ export function HowItWorksVideo({ children }: { children: React.ReactNode }) {
         </DialogDescription>
         <video
           className="aspect-video w-full bg-ink"
-          src="/video-introduction.mp4"
-          poster="/images/video-poster.webp"
+          src={`${BASE_PATH}/video-introduction.mp4`}
+          poster={`${BASE_PATH}/images/video-poster.webp`}
           controls
           autoPlay
           playsInline

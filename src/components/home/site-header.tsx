@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { APP_URL, CALCULATOR_URL } from "@/lib/links";
+import { BASE_PATH } from "@/lib/base-path";
 import { Menu, X } from "lucide-react";
 
 const navigationLinks = [
@@ -45,7 +46,7 @@ export function SiteHeader() {
         onClick={() => setMenuOpen(false)}
       >
         <Image
-          src="/max-loan-logo.svg"
+          src={`${BASE_PATH}/max-loan-logo.svg`}
           alt="MAX LOAN"
           width={197}
           height={36}

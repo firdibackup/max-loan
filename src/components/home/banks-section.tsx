@@ -2,6 +2,7 @@ import Image from "next/image";
 import * as motion from "motion/react-client";
 import { item, rise, stagger } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import { BASE_PATH } from "@/lib/base-path";
 import { wrap } from "./styles";
 
 const banks = [
@@ -60,7 +61,7 @@ export function BanksSection() {
               className="flex h-14 w-[calc((100%-1.5rem)/3)] items-center justify-center sm:h-[68px] sm:w-[calc((100%-3.75rem)/4)] md:w-[calc((100%-5rem)/5)] lg:w-[calc((100%-10.5rem)/7)] lg:max-w-[158px]"
             >
               <Image
-                src={`/banks/${slug}.png`}
+                src={`${BASE_PATH}/banks/${slug}.png`}
                 alt={name}
                 width={138}
                 height={48}

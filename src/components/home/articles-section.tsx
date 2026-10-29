@@ -5,6 +5,7 @@ import { ArrowLink } from "./arrow-link";
 import { ease, item, rise, stagger } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { APP_URL } from "@/lib/links";
+import { BASE_PATH } from "@/lib/base-path";
 import { eyebrow, wrap } from "./styles";
 
 const articles = [
@@ -63,7 +64,7 @@ export function ArticlesSection() {
               className="relative block aspect-[590/300] overflow-hidden rounded-2xl"
             >
               <Image
-                src="/images/jurnal-ekuitas-rumah.webp"
+                src={`${BASE_PATH}/images/jurnal-ekuitas-rumah.webp`}
                 alt="Pemilik rumah tersenyum mencatat di papan klip di depan rumahnya saat senja"
                 fill
                 sizes="(min-width: 1024px) 590px, 100vw"

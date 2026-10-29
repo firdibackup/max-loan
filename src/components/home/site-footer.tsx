@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { APP_URL, CALCULATOR_URL } from "@/lib/links";
+import { BASE_PATH } from "@/lib/base-path";
 import { wrap } from "./styles";
 
 const footerLinks = [
@@ -48,7 +49,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-[300px_repeat(4,minmax(0,1fr))] lg:gap-12">
           <div className="col-span-2 flex flex-col gap-6 lg:col-span-1">
             <Image
-              src="/max-loan-logo-white.svg"
+              src={`${BASE_PATH}/max-loan-logo-white.svg`}
               alt="MAX LOAN"
               width={230}
               height={42}

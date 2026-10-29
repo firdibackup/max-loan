@@ -5,6 +5,7 @@ import { APP_URL } from "@/lib/links";
 import { ParallaxImage } from "@/components/parallax-image";
 import { ease } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import { BASE_PATH } from "@/lib/base-path";
 import { wrap } from "./styles";
 
 /** Hero entrance: plays on load, sharpening out of a soft blur. */
@@ -23,8 +24,8 @@ export function HeroSection() {
     >
       <ParallaxImage
         priority
-        src="/images/hero-rumah-dan-pemilik.webp"
-        mobileSrc="/images/hero-rumah-dan-pemilik-vertical.webp"
+        src={`${BASE_PATH}/images/hero-rumah-dan-pemilik.webp`}
+        mobileSrc={`${BASE_PATH}/images/hero-rumah-dan-pemilik-vertical.webp`}
         alt="Pasangan tersenyum memegang maket rumah di depan rumah modern"
         className="object-[88%_center] max-sm:object-bottom lg:object-center"
       />

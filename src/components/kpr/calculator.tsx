@@ -7,6 +7,7 @@ import { simulate, validateInputs } from "@/lib/kpr/finance";
 import type { Inputs, Mode, Product, Simulation } from "@/lib/kpr/types";
 import { ComparisonTable } from "./comparison-table";
 import { applicationLink } from "@/lib/kpr/handoff";
+import { BASE_PATH } from "@/lib/base-path";
 
 const rupiah = (value: number) => new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(value);
 const numeric = (value: number) => new Intl.NumberFormat("id-ID", { maximumFractionDigits: 2 }).format(value);
@@ -94,7 +95,7 @@ export function KprCalculator({ applicationUrl }: { applicationUrl: string }) {
     async function load() {
       setLoading(true); setError("");
       try {
-        const response = await fetch("/api/kpr/products", { signal: controller.signal });
+        const response = await fetch(`${BASE_PATH}/api/kpr/products`, { signal: controller.signal });
         if (!response.ok) throw new Error("Katalog bank belum dapat dimuat. Coba lagi untuk mengambil produk terbaru.");
         const data = await response.json();
         setProducts(data.products); setAsOf(data.asOf);

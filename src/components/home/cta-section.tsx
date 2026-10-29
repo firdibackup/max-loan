@@ -2,6 +2,7 @@ import * as motion from "motion/react-client";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { APP_URL } from "@/lib/links";
+import { BASE_PATH } from "@/lib/base-path";
 import { ParallaxImage } from "@/components/parallax-image";
 import { item, rise, stagger } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -14,7 +15,7 @@ export function CtaSection() {
       className="relative isolate overflow-hidden bg-ink-deep"
     >
       <ParallaxImage
-        src="/images/cta-fasad-maxi.webp"
+        src={`${BASE_PATH}/images/cta-fasad-maxi.webp`}
         alt=""
         className="object-[70%_center] lg:object-center"
       />

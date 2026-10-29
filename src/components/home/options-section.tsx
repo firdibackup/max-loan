@@ -2,6 +2,7 @@ import Image from "next/image";
 import * as motion from "motion/react-client";
 import { rise } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import { BASE_PATH } from "@/lib/base-path";
 import { wrap } from "./styles";
 
 const grain =
@@ -68,7 +69,7 @@ export function OptionsSection() {
             className="h-px w-16 bg-gradient-to-r from-transparent via-aqua to-transparent"
           />
           <Image
-            src="/max-loan-logo-white.svg"
+            src={`${BASE_PATH}/max-loan-logo-white.svg`}
             alt="MAX LOAN"
             width={197}
             height={36}

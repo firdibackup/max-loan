@@ -1,6 +1,7 @@
 import Image from "next/image";
 import * as motion from "motion/react-client";
 import { ease, rise, stagger } from "@/lib/motion";
+import { BASE_PATH } from "@/lib/base-path";
 
 export function MortgageStatement() {
   return (
@@ -10,7 +11,7 @@ export function MortgageStatement() {
     >
       <div className="flex flex-col gap-6 rounded-xl bg-white p-5 outline outline-line -outline-offset-1 sm:p-8">
         <div className="flex items-center justify-between gap-6">
-          <Image src="/max-loan-logo.svg" alt="MAX LOAN" width={153} height={28} />
+          <Image src={`${BASE_PATH}/max-loan-logo.svg`} alt="MAX LOAN" width={153} height={28} />
           <span className="text-[11px] leading-[17px] tracking-[0.14em] text-slate">
             CONTOH TAMPILAN
           </span>
