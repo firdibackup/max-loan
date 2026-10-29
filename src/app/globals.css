@@ -1,0 +1,282 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+.testimonials-track {
+  display: flex;
+  width: max-content;
+}
+
+.testimonials-group {
+  display: flex;
+  gap: 32px;
+  padding-right: 32px;
+}
+
+@media (min-width: 1024px) {
+  .testimonials-group {
+    gap: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-group[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+.feature-preview-body {
+  min-height: 460px;
+}
+
+@media (min-width: 1024px) {
+  .feature-sticky {
+    position: sticky;
+    top: max(24px, calc((100svh - 650px) / 2));
+  }
+}
+
+@keyframes feature-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes feature-bar-grow {
+  from { transform: scaleY(0.15); }
+  to { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .feature-progress {
+    transform-origin: left;
+    animation: feature-grow 900ms var(--ease-out-expo) both;
+  }
+  .feature-chart-bar {
+    animation: feature-bar-grow 700ms var(--ease-out-expo) both;
+  }
+}
+
+/* Keep the illustration generous, with the crop confined to the card edges. */
+.benefit-card {
+  min-height: 0;
+}
+
+.benefit-art {
+  height: 220px;
+  width: calc(100% + 64px);
+  margin-right: -48px;
+  margin-bottom: -48px;
+  align-self: flex-end;
+}
+
+.benefit-card-narrow .benefit-art {
+  position: relative;
+  width: calc(100% + 48px);
+  height: auto;
+  aspect-ratio: 1.2;
+  margin: auto -24px -24px 0;
+  flex-shrink: 0;
+}
+
+.benefit-card-narrow .benefit-art img {
+  transform: none;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+.benefit-card-narrow .benefit-art-full {
+  aspect-ratio: auto;
+}
+
+.benefit-art-full img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 640px) {
+  .benefit-card-wide {
+    min-height: 340px;
+  }
+
+  .benefit-card-wide .benefit-copy {
+    width: 48%;
+  }
+
+  .benefit-card-wide .benefit-art {
+    position: absolute;
+    right: -4%;
+    bottom: -4%;
+    width: 60%;
+    height: 88%;
+    margin: 0;
+  }
+
+  .benefit-card-wide h3 {
+    font-size: clamp(1.75rem, 2.2vw, 2rem);
+  }
+
+  .benefit-card-wide .benefit-copy p {
+    font-size: 1.125rem;
+  }
+
+  .benefit-card-narrow .benefit-art {
+    width: calc(100% + 64px);
+    max-width: 400px;
+    margin-right: -32px;
+    margin-bottom: -32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .benefit-card-narrow .benefit-copy {
+    gap: 12px;
+  }
+
+  .benefit-card-narrow h3 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+  }
+
+  .benefit-card-narrow .benefit-copy p {
+    font-size: 1.125rem;
+  }
+
+  .benefit-card-comparison {
+    min-height: 280px;
+  }
+
+  .benefit-card-comparison .benefit-copy {
+    width: 48%;
+  }
+
+  .benefit-card-comparison .benefit-art {
+    width: 52%;
+    height: 112%;
+    right: -2%;
+  }
+
+}
+
+@theme inline {
+  /* shadcn semantic tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-display: var(--font-haas), system-ui, sans-serif;
+  --font-heading: var(--font-display);
+}
+
+@theme {
+  /* REMAX palette: navy #000e35, blue #0043ff */
+  --color-ink: #000e35;
+  --color-ink-deep: #00081f;
+  --color-slate: #565d70;
+  --color-line: #e0e2e8;
+  --color-paper: #f7f5ee;
+  --color-mist: #eef2ff;
+  --color-mint: #dbe4ff;
+  --color-sage: #f3f1ea;
+  --color-track: #eeede8;
+  --color-teal: #0043ff;
+  --color-pine: #0036cc;
+  --color-aqua: #8aa8ff;
+  --color-fog: #c8cbd6;
+  --color-deep-line: #22336b;
+  --color-amber: #875400;
+  --color-amber-wash: #fffaeb;
+
+  /* Display scale: reference desktop size is the max of each clamp */
+  --text-hero: clamp(2.25rem, 1.45rem + 2.9vw, 3.5rem);
+  --text-hero--line-height: 1.125;
+  --text-display: clamp(2.25rem, 1.45rem + 2.9vw, 3.5rem);
+  --text-display--line-height: 1.06;
+  --text-finale: clamp(2.5rem, 1.55rem + 3.5vw, 4rem);
+  --text-finale--line-height: 1.05;
+  --text-section: clamp(2rem, 1.45rem + 2vw, 3rem);
+  --text-section--line-height: 1.1;
+  --text-band: clamp(1.75rem, 1.4rem + 1.3vw, 2.5rem);
+  --text-band--line-height: 1.1;
+  --text-banks: clamp(1.625rem, 1.4rem + 0.8vw, 2rem);
+  --text-banks--line-height: 1.19;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --background: #f7f5ee;
+  --foreground: #000e35;
+  --popover: #ffffff;
+  --popover-foreground: #000e35;
+  --primary: #0043ff;
+  --primary-foreground: #ffffff;
+  --secondary: #eef2ff;
+  --secondary-foreground: #000e35;
+  --muted: #eeede8;
+  --muted-foreground: #565d70;
+  --accent: #eef2ff;
+  --accent-foreground: #000e35;
+  --destructive: #b42318;
+  --border: #e0e2e8;
+  --input: #e0e2e8;
+  --ring: #0036cc;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+    scroll-padding-top: 1.5rem;
+    scrollbar-color: #9a9fb0 var(--color-paper);
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-aqua);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-pine);
+    outline-offset: 3px;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
