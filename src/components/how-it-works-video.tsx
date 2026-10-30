@@ -26,7 +26,7 @@ export function HowItWorksVideo({ children }: { children: React.ReactNode }) {
         <video
           className="aspect-video w-full bg-ink"
           src={`${BASE_PATH}/video-introduction.mp4`}
-          poster={`${BASE_PATH}/images/video-poster.webp`}
+          poster={`${BASE_PATH}/images/video-poster.png`}
           controls
           autoPlay
           playsInline

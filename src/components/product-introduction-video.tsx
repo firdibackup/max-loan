@@ -12,9 +12,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { BASE_PATH } from "@/lib/base-path";
 
-const videoSrc = "/video-introduction.mp4";
-const posterSrc = "/images/video-poster.webp";
+const videoSrc = `${BASE_PATH}/video-introduction.mp4`;
+const posterSrc = `${BASE_PATH}/images/video-poster.png`;
 
 export function ProductIntroductionVideo() {
   const [open, setOpen] = useState(false);
