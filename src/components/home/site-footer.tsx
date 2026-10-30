@@ -50,9 +50,9 @@ export function SiteFooter() {
           <div className="col-span-2 flex flex-col gap-6 lg:col-span-1">
             <Image
               src={`${BASE_PATH}/max-loan-logo-white.svg`}
-              alt="MAX LOAN"
-              width={230}
-              height={42}
+              alt="MAXLOAN"
+              width={227}
+              height={35}
             />
             <p className="text-base leading-[1.56]">
               Personal KPR Financial Assistant

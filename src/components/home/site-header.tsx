@@ -41,15 +41,15 @@ export function SiteHeader() {
     >
       <a
         href={APP_URL}
-        aria-label="MAX LOAN, kembali ke beranda"
+        aria-label="MAXLOAN, kembali ke beranda"
         className="shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
         onClick={() => setMenuOpen(false)}
       >
         <Image
           src={`${BASE_PATH}/max-loan-logo.svg`}
-          alt="MAX LOAN"
-          width={197}
-          height={36}
+          alt="MAXLOAN"
+          width={194}
+          height={30}
           loading="eager"
         />
       </a>

@@ -70,9 +70,9 @@ export function OptionsSection() {
           />
           <Image
             src={`${BASE_PATH}/max-loan-logo-white.svg`}
-            alt="MAX LOAN"
-            width={197}
-            height={36}
+            alt="MAXLOAN"
+            width={194}
+            height={30}
           />
           <p className="text-sm leading-6 tracking-[0.02em] text-white/70">
             KPR lebih mudah dipahami.

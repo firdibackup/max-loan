@@ -121,7 +121,7 @@ export function ProductFeaturePreview({ active, className }: { active: number; c
     <figure className={cn("feature-preview rounded-[20px] bg-mist p-3 sm:p-5 xl:p-7", className)}>
       <div className="overflow-hidden rounded-xl border border-line bg-white shadow-[0_16px_40px_-24px_rgba(0,14,53,0.24)]">
         <div className="flex items-center justify-between gap-3 border-b border-line px-5 py-4">
-          <Image src={`${BASE_PATH}/max-loan-logo.svg`} alt="MAX LOAN" width={131} height={24} className="h-6 w-auto" />
+          <Image src={`${BASE_PATH}/max-loan-logo.svg`} alt="MAXLOAN" width={156} height={24} className="h-6 w-auto" />
           <span className="text-xs text-slate">{screenNames[active]}</span>
         </div>
         <motion.div key={active} initial={reduce ? false : { opacity: 0.65, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease }} className="feature-preview-body p-5 sm:p-6">
