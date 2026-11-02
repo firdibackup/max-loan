@@ -1,5 +1,6 @@
 import Image from "next/image";
 import * as motion from "motion/react-client";
+import { BASE_PATH } from "@/lib/base-path";
 import { item, rise, stagger } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { eyebrow, wrap } from "./styles";
@@ -107,7 +108,7 @@ export function BenefitsSection() {
                 )}
               >
                 <Image
-                  src={card.image}
+                  src={`${BASE_PATH}${card.image}`}
                   alt={card.imageAlt}
                   fill={card.number !== "02"}
                   width={card.number === "02" ? 1024 : undefined}
