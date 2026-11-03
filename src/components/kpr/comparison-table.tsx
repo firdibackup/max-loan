@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import type { Mode, Simulation } from "@/lib/kpr/types";
+import { BankLogo } from "./bank-logo";
 
 const rupiah = (value: number) => new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(value);
 
@@ -35,7 +36,7 @@ export function ComparisonTable({ results, mode, onClear }: { results: Simulatio
     <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Tabel perbandingan produk">
       <table className="w-full min-w-[580px] text-left text-sm">
         <caption className="sr-only">Perbandingan hingga tiga produk bank untuk input yang sama</caption>
-        <thead><tr><th scope="col" className="p-3 font-medium">Komponen</th>{results.map(r => <th scope="col" key={r.product.id} className="max-w-60 p-3 align-top font-semibold">{r.product.name}</th>)}</tr></thead>
+        <thead><tr><th scope="col" className="p-3 font-medium">Komponen</th>{results.map(r => <th scope="col" key={r.product.id} className="max-w-60 p-3 align-top font-semibold"><BankLogo bank={r.product.bank} /><span className="mt-2 block">{r.product.name}</span></th>)}</tr></thead>
         <tbody>
           {rows.map(row => {
             const values = results.map(row.value);

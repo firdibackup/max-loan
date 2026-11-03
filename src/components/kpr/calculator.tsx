@@ -6,6 +6,7 @@ import { ArrowRight, ArrowUpRight, Check, ChevronDown, CircleAlert, LoaderCircle
 import { simulate, validateInputs } from "@/lib/kpr/finance";
 import type { Inputs, Mode, Product, Simulation } from "@/lib/kpr/types";
 import { ComparisonTable } from "./comparison-table";
+import { BankLogo } from "./bank-logo";
 import { applicationLink } from "@/lib/kpr/handoff";
 import { BASE_PATH } from "@/lib/base-path";
 
@@ -193,7 +194,7 @@ export function KprCalculator({ applicationUrl }: { applicationUrl: string }) {
             : result ? <>
               <section id="hasil-simulasi" aria-label="Hasil simulasi" className="overflow-hidden rounded-2xl border border-line bg-white">
                 <div className="bg-ink px-6 py-7 text-white sm:px-8 sm:py-8">
-                  <div className="mb-6 flex flex-wrap items-center justify-between gap-3"><span className="rounded-full bg-white/10 px-3 py-1.5 text-xs">Estimasi cicilan awal</span><span className="text-xs text-mint">{result.product.bank.name}</span></div>
+                  <div className="mb-6 flex flex-wrap items-center justify-between gap-3"><span className="rounded-full bg-white/10 px-3 py-1.5 text-xs">Estimasi cicilan awal</span><BankLogo bank={result.product.bank} /></div>
                   <p className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tight tabular-nums">{rupiah(result.payment)}<span className="ml-2 text-sm font-normal text-fog">/ bulan</span></p>
                   <p className="mt-3 text-sm leading-6 text-fog">{result.product.name}</p>
                   <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/20 pt-4 text-xs text-mint"><span>Bunga awal {numeric(result.product.ratePeriods[0].rateBps / 100)}% / tahun</span><span>Tenor {numeric(input.months / 12)} tahun</span></div>
@@ -233,7 +234,7 @@ export function KprCalculator({ applicationUrl }: { applicationUrl: string }) {
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{visible.map(r => {
           const active = result?.product.id === r.product.id;
           return <article key={r.product.id} className={`flex flex-col rounded-xl border bg-white p-5 sm:p-6 ${active ? "border-pine ring-1 ring-pine" : "border-line"}`}>
-            <div className="mb-5 flex items-center justify-between gap-3"><span className="flex h-11 min-w-14 items-center justify-center rounded-lg bg-paper px-2 text-xs font-bold text-pine">{r.product.bank.mark}</span><span className="text-xs text-slate">Fixed {numeric((r.product.ratePeriods.filter(p => p.type === "fixed").reduce((s, p) => s + (p.durationMonths ?? 0), 0)) / 12)} tahun</span></div>
+            <div className="mb-5 flex items-center justify-between gap-3"><BankLogo bank={r.product.bank} /><span className="text-xs text-slate">Fixed {numeric((r.product.ratePeriods.filter(p => p.type === "fixed").reduce((s, p) => s + (p.durationMonths ?? 0), 0)) / 12)} tahun</span></div>
             <p className="text-xs text-slate">{r.product.bank.name}</p><h3 className="mt-1 text-lg font-semibold leading-7">{r.product.name}</h3>
             <p className="mt-5 text-2xl font-semibold tabular-nums">{rupiah(r.payment)}<span className="ml-1 text-xs font-normal text-slate">/ bulan</span></p>
             <div className="mt-3 space-y-2 text-xs leading-5 text-slate"><p>Bunga awal <strong className="text-ink">{numeric(r.product.ratePeriods[0].rateBps / 100)}%</strong> · LTV maks. {numeric(r.product.eligibility.maximumLtvBps / 100)}%</p><p>Total pembayaran + biaya {rupiah(r.totalCost)}</p>{r.missingFees.length > 0 && <p className="text-amber">Sebagian biaya belum tersedia</p>}{r.reasons.length > 0 && <p className="text-amber">{r.reasons.length} catatan penyesuaian</p>}</div>
