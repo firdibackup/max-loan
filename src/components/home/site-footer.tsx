@@ -1,7 +1,9 @@
 import Image from "next/image";
+import { ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { APP_URL, CALCULATOR_URL } from "@/lib/links";
 import { BASE_PATH } from "@/lib/base-path";
+import { LEGAL_DOCS, LEGAL_ENTITY } from "@/lib/legal";
 import { wrap } from "./styles";
 
 const footerLinks = [
@@ -34,11 +36,7 @@ const footerLinks = [
   },
   {
     title: "Legal",
-    links: [
-      ["Syarat & Ketentuan", APP_URL],
-      ["Kebijakan Privasi", APP_URL],
-      ["Disclaimer", APP_URL],
-    ],
+    links: LEGAL_DOCS.map(({ title, slug }) => [title, `${BASE_PATH}/${slug}`]),
   },
 ];
 
@@ -84,10 +82,21 @@ export function SiteFooter() {
         </div>
         <div
           id="disclaimer"
-          className="flex flex-col gap-6 border-t border-deep-line pt-7"
+          className="flex flex-col gap-4 border-t border-deep-line pt-7"
         >
+          <p className="flex w-fit items-center gap-2 rounded-full border border-deep-line px-3 py-1.5 text-xs leading-[18px] font-semibold">
+            <ShieldCheck size={15} className="shrink-0 text-aqua" aria-hidden="true" />
+            Data pribadimu dilindungi UU No. 27 Tahun 2022
+          </p>
+          <p className="max-w-[880px] text-xs leading-[19px] text-fog">
+            <strong className="font-semibold">Disclaimer.</strong> Maxloan adalah
+            layanan asisten finansial KPR dari REMAX Indonesia, bukan bank atau
+            pemberi pinjaman. Semua angka di situs ini adalah estimasi, bukan
+            penawaran atau persetujuan kredit. Keputusan kredit mengikuti
+            ketentuan lembaga keuangan terkait.
+          </p>
           <p className="text-xs leading-[19px] text-fog">
-            © REMAX. Seluruh hak cipta dilindungi.
+            © REMAX. Seluruh hak cipta dilindungi. Maxloan dikelola oleh {LEGAL_ENTITY}.
           </p>
         </div>
       </div>
